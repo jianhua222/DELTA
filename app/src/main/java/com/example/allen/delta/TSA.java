@@ -11,10 +11,9 @@ import retrofit2.http.Query;
  */
 
 public interface TSA {
-    @GET("hack/search/airport")
-    Call<Flight_States_Class> getFlight(
+    @GET("hack/tsa")
+    Call<TSA_Class> getFlight(
             @Query("airport") String Airport,
-
             @Query("apikey") String apiKey
     );
 

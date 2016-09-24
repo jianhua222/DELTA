@@ -6,9 +6,18 @@ import java.util.List;
  */
 
 public class TSA_Class {
-    private WaitTimeResult waitTimeResult;
-    public class WaitTimeResult{
-        private List<String> waitTime;
+    private List<waitTime> WaitTimeResult;
 
+    public List<waitTime> getWaitTime(){ return WaitTimeResult;}
+
+    public class WaitTimeResult{
+        private List<waitTime> waitTime;
+        public List<waitTime> getWaitTime(){ return waitTime;}
     }
+
+    public class waitTime{
+        private String waitTime;
+        public String getWaittime(){ return waitTime;}
+    }
+
 }
