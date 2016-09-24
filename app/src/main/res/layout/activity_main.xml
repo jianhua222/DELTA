@@ -19,25 +19,33 @@
         android:layout_marginTop="40dp"
         android:id="@+id/textView"/>
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:hint="Flight number"
+        android:id="@+id/fightNumberInput"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
     <Button
         android:text="Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/inputText"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="29dp"
         android:id="@+id/button"
-        android:onClick="clickEvent"/>
+        android:onClick="clickEvent"
+        android:layout_below="@+id/textView"
+        android:layout_toRightOf="@+id/textView"
+        android:layout_toEndOf="@+id/textView" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
-        android:hint="input the flight number"
-        android:id="@+id/inputText"
+        android:inputType="datetime"
+        android:hint="Date"
+        android:id="@+id/DateInput"
+        android:layout_alignTop="@+id/textView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
