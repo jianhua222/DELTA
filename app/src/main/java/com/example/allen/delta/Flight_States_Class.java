@@ -4,7 +4,7 @@ package com.example.allen.delta;
  * Created by allam on 9/24/2016.
  */
 
-public class TestClass {
+public class Flight_States_Class {
     private FlightStatusResponse flightStatusResponse;
 
     public String getDepartureAirportCode() {
@@ -12,7 +12,7 @@ public class TestClass {
     }
 
     public FlightStatusResponse getFlightStatusResponse() {
-        return flightStat   usResponse;
+        return flightStatusResponse;
     }
 
     public class FlightStatusResponse {

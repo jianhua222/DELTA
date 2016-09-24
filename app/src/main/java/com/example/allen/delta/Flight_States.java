@@ -4,7 +4,6 @@ import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 /**
@@ -14,7 +13,7 @@ import retrofit2.http.Query;
 public interface Flight_States {
 
     @GET("hack/status")
-    Call<TestClass> getFlight(
+    Call<Flight_States_Class> getFlight(
             @Query("flightNumber") String flightNumber,
             @Query("flightOriginDate") String flightDepartureDate,
             @Query("apikey") String apiKey

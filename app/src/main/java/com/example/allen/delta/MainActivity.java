@@ -8,64 +8,67 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 
-import org.json.JSONObject;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
+    String dateSt="", flightSt="";
+    String departureCodeSt = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+    }
+
+    public void setDepartureCode(String inputSt){
+        departureCodeSt = inputSt;
+
+        TextView textView = (TextView) findViewById(R.id.textView);
+        textView.setText(departureCodeSt);
+    }
+
+    public void getDepartureCode(){
         Flight_States service = Flight_States.retrofit.create(Flight_States.class);
 
-        Call<TestClass> call = service.getFlight("1195", "2016-10-10", getString(R.string.delta_api_key));
+        Call<Flight_States_Class> call = service.getFlight(flightSt, dateSt, getString(R.string.delta_api_key));
 
         Log.v("ADAM_MCNEILLY", "Call url: " + call.request().url().toString());
 
-        call.enqueue(new Callback<TestClass>() {
+        call.enqueue(new Callback<Flight_States_Class>() {
             @Override
-            public void onResponse(Call<TestClass> call, Response<TestClass> response) {
-                TestClass baseObject = response.body();
+            public void onResponse(Call<Flight_States_Class> call, Response<Flight_States_Class> response) {
+
+                Flight_States_Class baseObject = response.body();
 
                 String departureAirportCode = baseObject.getDepartureAirportCode();
+
+                setDepartureCode(departureAirportCode);
 
                 Log.v("ADAM_MCNEILLY", departureAirportCode);
             }
 
             @Override
-            public void onFailure(Call<TestClass> call, Throwable t) {
+            public void onFailure(Call<Flight_States_Class> call, Throwable t) {
                 Log.v("ADAM_MCNEILLY", t.getMessage());
             }
         });
+
+        //return departureAirportCode;
     }
 
-//    public JSONObject testAPI(){
-//        HttpPost request = new HttpPost("your url");
-//        JSONObject param = new JSONObject();
-//        param.put("name", "rarnu");
-//        param.put("password", "123456");
-//
-//        StringEntity se = new StringEntity(param.toString());
-//        request.setEntity(se);
-//
-//        HttpResponse httpResponse = new DefaultHttpClient().execute(request);
-//
-//        if (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
-//
-//            String response= EntityUtils.toString(httpResponse.getEntity());
-//            JSONObject result = new JSONObject(response);
-//            return result;
-//        }
-//    }
     public void clickEvent(View v){
-        TextView textView = (TextView) findViewById(R.id.textView);
-        EditText fightNumberInput = (EditText) findViewById(R.id.dateInput);
-        EditText dateInput = (EditText) findViewById(R.id.fightNumberInput)
-        textView.setText(inputText.getText());
+        EditText fightNumberInput = (EditText) findViewById(R.id.flightNumberInput);
+        EditText dateInput = (EditText) findViewById(R.id.dateInput);
+        dateSt = dateInput.getText().toString();
+        flightSt = fightNumberInput.getText().toString();
+        Log.v("Allam", dateSt);
+        Log.v("Allam", flightSt);
+        getDepartureCode();
     }
+
 }
