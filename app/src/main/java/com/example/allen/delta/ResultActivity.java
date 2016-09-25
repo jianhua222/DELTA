@@ -25,7 +25,7 @@ public class ResultActivity extends AppCompatActivity {
 
         Log.v("allam", "here?: "+sum);
         TextView textView = (TextView) findViewById(R.id.textView2);
-        textView.setText("The predicted security check in time for "+ departureCode +" airport is "+sum+" mins."+"\n"+"\nThe predicted baggage check in time is 25 mins. "+"\n"+"\nRecommend arive departure airport " +(25+sum+30)+" mins before the filght departure.");
+        textView.setText("The predicted security check in time for "+ departureCode +" airport is "+sum+" mins."+"\n"+"\nThe predicted baggage check in time is 25 mins. "+"\n"+"\nRecommend arrive departure airport " +(25+sum+30)+" mins before the filght departure.");
     }
 //
 //    public void getAverage(ArrayList<Integer> input){
