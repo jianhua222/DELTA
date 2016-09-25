@@ -11,6 +11,10 @@ public class Flight_States_Class {
         return getFlightStatusResponse().getStatusResponse().getFlightStatusTO().getFlightStatusLegTOList().getDepartureAirportCode();
     }
 
+    public String getDepartureTime(){
+        return getFlightStatusResponse().getStatusResponse().getFlightStatusTO().getFlightStatusLegTOList().getDepartureLocalTimeScheduled();
+    }
+
     public FlightStatusResponse getFlightStatusResponse() {
         return flightStatusResponse;
     }
@@ -41,10 +45,11 @@ public class Flight_States_Class {
 
     public class FlightStatusLegTOList {
         private String departureAirportCode;
-
+        private String departureLocalTimeScheduled;
         public String getDepartureAirportCode() {
             return departureAirportCode;
         }
+        public String getDepartureLocalTimeScheduled(){return departureLocalTimeScheduled; }
     }
 }
 

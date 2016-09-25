@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<Flight_States_Class>() {
             @Override
             public void onResponse(Call<Flight_States_Class> call, Response<Flight_States_Class> response) {
-
+                Log.v("allam", "check Json here");
                 Flight_States_Class baseObject = response.body();
 
                 String departureAirportCode = baseObject.getDepartureAirportCode();
@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Flight_States_Class> call, Throwable t) {
-                Log.v("ADAM_MCNEILLY", t.getMessage());
+                Log.v("ADAM_MCNEILLY", "fail: " + t.getMessage());
             }
         });
 
